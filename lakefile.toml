@@ -9,4 +9,18 @@ rev = "fc4f59e577feb1a4956671bc04ac18aaaf8cd842"
 
 [[lean_lib]]
 name = "RHConsequences"
-roots = ["Targets", "MillerPrime", "MillerSubgroup", "MillerCharacter", "MillerFromSmallNonresidue", "PrimeCountingFromPsi", "RHConsequences", "Audit"]
+roots = ["Targets", "MillerPrime", "MillerSubgroup", "MillerCharacter", "MillerFromSmallNonresidue", "PrimeCountingFromPsi", "PsiCompact", "PsiFromRH", "PsiZeroCountingWindow", "RHConsequences", "Audit"]
+
+# Use six source modules materialized by verify.py at the submodule pin. Only these
+# modules and Mathlib are needed by the analytic proof.
+[[lean_lib]]
+name = "Cryptids"
+srcDir = ".lake/cryptids-src"
+roots = [
+  "Cryptids.Semantics.Riemann.Schmidt",
+  "Cryptids.Semantics.Riemann.DigammaBinet",
+  "Cryptids.Semantics.Riemann.ExplicitLarge",
+  "Cryptids.Semantics.Riemann.VonMangoldtCount",
+  "Cryptids.Semantics.Riemann.HorizontalBounds",
+  "Cryptids.Semantics.Riemann.WeightedStieltjes"
+]

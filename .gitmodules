@@ -1,0 +1,3 @@
+[submodule "vendor/cryptids"]
+	path = vendor/cryptids
+	url = https://github.com/google-deepmind/cryptids.git

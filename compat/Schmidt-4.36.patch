@@ -1,0 +1,12 @@
+--- a/Cryptids/Semantics/Riemann/Schmidt.lean
++++ b/Cryptids/Semantics/Riemann/Schmidt.lean
+@@ -1282,7 +1282,8 @@
+     (C : ℂ) / (s - α) + 1 / s + deriv completedPoleZeta s / (s * completedPoleZeta s)
+   let W : Set ℂ := {s : ℂ | s - (α : ℂ) ≠ 0 ∧ s ≠ 0 ∧ completedPoleZeta s ≠ 0}
+   have hW_open : IsOpen W := by
+-    refine IsOpen.inter (IsOpen.preimage (continuous_id.sub continuous_const) isOpen_ne) ?_
++    change IsOpen ({s : ℂ | s - (α : ℂ) ≠ 0} ∩ ({s : ℂ | s ≠ 0} ∩ {s : ℂ | completedPoleZeta s ≠ 0}))
++    refine IsOpen.inter (isOpen_ne_fun (f := fun s : ℂ ↦ s - (α : ℂ)) (g := fun _ ↦ (0 : ℂ)) (by fun_prop) continuous_const) ?_
+     exact IsOpen.inter isOpen_ne (isOpen_ne.preimage differentiable_completedPoleZeta.continuous)
+   have hF_diff_W : DifferentiableOn ℂ F W := by
+     intro s hs

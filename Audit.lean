@@ -10,7 +10,14 @@ run_cmd do
     `CarryForward.Targets.exists_proper_subgroup_of_composite,
     `CarryForward.Targets.miller_of_liar_subgroups,
     `CarryForward.Targets.millerTestIsCorrect_of_smallNonresidue,
-    `CarryForward.Targets.primeCountingError_of_psi_bound]
+    `CarryForward.Targets.primeCountingError_of_psi_bound,
+    `CarryForward.Targets.psi_error_on_interval,
+    `CarryForward.Targets.psi_bound_of_large_bound,
+    `CarryForward.Targets.weightedZeroCounting_unitWindow_le,
+    `CarryForward.Targets.weightedZeroCounting_unitWindow_isBigO,
+    `CarryForward.Targets.abs_psi_sub_self_le_seven_eighths_of_five_thousand_le,
+    `CarryForward.Targets.psi_bound_of_riemannHypothesis,
+    `CarryForward.Targets.primeCountingError_of_riemannHypothesis]
   let allowed := #[`propext, `Classical.choice, `Quot.sound]
   let env ← getEnv
   for name in expected do
@@ -28,3 +35,31 @@ run_cmd do
 #print axioms CarryForward.Targets.miller_of_liar_subgroups
 #print axioms CarryForward.Targets.millerTestIsCorrect_of_smallNonresidue
 #print axioms CarryForward.Targets.primeCountingError_of_psi_bound
+
+-- Check the exported theorem declarations of the six original modules as well.
+open Lean in
+run_cmd do
+  let env ← getEnv
+  let allowed := #[`propext, `Classical.choice, `Quot.sound]
+  for modName in #[`Cryptids.Semantics.Riemann.Schmidt, `Cryptids.Semantics.Riemann.DigammaBinet,
+      `Cryptids.Semantics.Riemann.ExplicitLarge, `Cryptids.Semantics.Riemann.VonMangoldtCount,
+      `Cryptids.Semantics.Riemann.HorizontalBounds, `Cryptids.Semantics.Riemann.WeightedStieltjes] do
+    let some idx := env.getModuleIdx? modName | throwError "missing module {modName}"
+    let mut checked : Nat := 0
+    for decl in env.header.moduleData[idx]!.constNames do
+      if !decl.isInternalDetail && !isPrivateName decl then
+        if (env.find? decl).any (fun c => c matches .thmInfo _) then
+          let axioms ← collectAxioms decl
+          unless axioms.all allowed.contains do
+            throwError "unexpected axioms for {decl}: {axioms}"
+          checked := checked + 1
+    if checked == 0 then throwError "no exported theorems checked in {modName}"
+    logInfo m!"{modName}: checked {checked} exported theorem declarations"
+
+#print axioms CarryForward.Targets.psi_error_on_interval
+#print axioms CarryForward.Targets.psi_bound_of_large_bound
+#print axioms CarryForward.Targets.weightedZeroCounting_unitWindow_le
+#print axioms CarryForward.Targets.weightedZeroCounting_unitWindow_isBigO
+#print axioms CarryForward.Targets.abs_psi_sub_self_le_seven_eighths_of_five_thousand_le
+#print axioms CarryForward.Targets.psi_bound_of_riemannHypothesis
+#print axioms CarryForward.Targets.primeCountingError_of_riemannHypothesis
