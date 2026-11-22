@@ -11,3 +11,9 @@ For $x\ge 2$, we seek $|\psi(x)-x|\le C\sqrt x\log^2 x$. The large-$x$ argument 
 | Assemble the error bound | For $x\ge5000$ the published explicit inequality gives the coefficient $7/8$. On $[2,5000]$, the elementary Chebyshev upper bound and $\log x\ge1/2$ give a second constant. Choose the larger coefficient. Abel summation then gives the prime-counting bound. | [Large-$x$ arithmetic](https://github.com/google-deepmind/cryptids/blob/3647718b5df22e1a61462dec0376bd204526285a/Cryptids/Semantics/Riemann/ExplicitLarge.lean#L301) · [Small $x$](PsiCompact.lean) · [Assembly](PsiFromRH.lean) · [Abel summation](PrimeCountingFromPsi.lean) |
 
 For a general Dirichlet-series route, Mathlib also provides `hasSum_mellin`, which exchanges a Mellin integral with a series under summability and integrability assumptions. The smoothed route above uses Cryptids’ specialized Perron identity. [Mathlib’s Mellin-to-series lemma](https://github.com/leanprover-community/mathlib4/blob/fc4f59e577feb1a4956671bc04ac18aaaf8cd842/Mathlib/NumberTheory/LSeries/MellinEqDirichlet.lean#L28)
+
+## Cramér's short interval
+
+Take the difference between two adjacent averages of $ψ$, each of width $h$, before taking absolute values in their explicit formulas. A zero $ρ$ on the critical line contributes at most $h/√x$ to this difference, uniformly in its height. The derivative of $t^ρ/ρ$ has norm $t^{-1/2}$. Multiplying by the number of zeros through height $T=x/h$, counted with multiplicity, bounds the low zeros by $O(√x \log x)$.
+
+Above $T$, the inverse-square zero tail is $O((\log T)/T)$. Its coefficient in the two averages is $O(x^{3/2}/h)$, giving the same error. For $h=K√x \log x$ with $K$ sufficiently large, the increase in $ψ$ exceeds the possible prime-power contribution at the right endpoint. Thus $θ$ increases strictly, giving a prime in $(x,x+2h]$. [Lean proof](Cramer.lean) · [Dudek’s short-interval argument](https://arxiv.org/abs/1402.6417)

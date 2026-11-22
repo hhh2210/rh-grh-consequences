@@ -20,7 +20,7 @@ UPSTREAM_MODULES = tuple("Cryptids.Semantics.Riemann." + part for part in (
     "HorizontalBounds", "WeightedStieltjes"))
 MODULES = ("Targets", "MillerPrime", "MillerSubgroup", "MillerCharacter",
            "MillerFromSmallNonresidue", "PrimeCountingFromPsi", "PsiCompact", *UPSTREAM_MODULES,
-           "PsiFromRH", "PsiZeroCountingWindow", "RHConsequences", "Audit")
+           "PsiFromRH", "PsiZeroCountingWindow", "Cramer", "RHConsequences", "Audit")
 
 
 def checked(args, cwd, env):

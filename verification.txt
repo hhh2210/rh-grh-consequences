@@ -123,14 +123,23 @@ leanchecker -v PsiZeroCountingWindow
 replaying PsiZeroCountingWindow
 exit 0
 
-RHConsequences.lean sha256=bc30c010fdeb3def0472f64e767cc0fbf6c5b14fe1a1fb82c72ec68830aa0d20
+Cramer.lean sha256=a43031c119b265181ba3a11e734a050edcd87809433e15a26e416654b3aac4f5
+'CarryForward.Targets.primeInShortInterval_of_riemannHypothesis' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+lean --root=. -o <clean-build>/Cramer.olean Cramer.lean -> exit 0
+leanchecker -v Cramer
+replaying Cramer
+exit 0
+
+RHConsequences.lean sha256=d15dbc30ebddd488ef8661dd83f089bef1c94061e5af606d7d1ec0ca860113ea
 
 lean --root=. -o <clean-build>/RHConsequences.olean RHConsequences.lean -> exit 0
 leanchecker -v RHConsequences
 replaying RHConsequences
 exit 0
 
-Audit.lean sha256=a54f7d3797522617acfd236265c50ecb1b713871d0b63939fbafa6613decd951
+Audit.lean sha256=39e8de512d759b6ec1ce3d1b7e0df8d94d45fe452cf3db0b5cb66b202324850f
 CarryForward.Targets.isStrongProbablePrime_of_prime: [propext, Classical.choice, Quot.sound]
 CarryForward.Targets.fermat_of_isStrongProbablePrime: [propext, Classical.choice, Quot.sound]
 CarryForward.Targets.isUnit_of_isStrongProbablePrime: [propext, Classical.choice, Quot.sound]
@@ -145,6 +154,8 @@ CarryForward.Targets.weightedZeroCounting_unitWindow_isBigO: [propext, Classical
 CarryForward.Targets.abs_psi_sub_self_le_seven_eighths_of_five_thousand_le: [propext, Classical.choice, Quot.sound]
 CarryForward.Targets.psi_bound_of_riemannHypothesis: [propext, Classical.choice, Quot.sound]
 CarryForward.Targets.primeCountingError_of_riemannHypothesis: [propext, Classical.choice, Quot.sound]
+CarryForward.Targets.norm_adjacent_cpow_averages_sub_le: [propext, Classical.choice, Quot.sound]
+CarryForward.Targets.primeInShortInterval_of_riemannHypothesis: [propext, Classical.choice, Quot.sound]
 'CarryForward.Targets.isStrongProbablePrime_of_prime' depends on axioms: [propext, Classical.choice, Quot.sound]
 'CarryForward.Targets.fermat_of_isStrongProbablePrime' depends on axioms: [propext, Classical.choice, Quot.sound]
 'CarryForward.Targets.isUnit_of_isStrongProbablePrime' depends on axioms: [propext, Classical.choice, Quot.sound]

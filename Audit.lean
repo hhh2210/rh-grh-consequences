@@ -17,7 +17,9 @@ run_cmd do
     `CarryForward.Targets.weightedZeroCounting_unitWindow_isBigO,
     `CarryForward.Targets.abs_psi_sub_self_le_seven_eighths_of_five_thousand_le,
     `CarryForward.Targets.psi_bound_of_riemannHypothesis,
-    `CarryForward.Targets.primeCountingError_of_riemannHypothesis]
+    `CarryForward.Targets.primeCountingError_of_riemannHypothesis,
+    `CarryForward.Targets.norm_adjacent_cpow_averages_sub_le,
+    `CarryForward.Targets.primeInShortInterval_of_riemannHypothesis]
   let allowed := #[`propext, `Classical.choice, `Quot.sound]
   let env ← getEnv
   for name in expected do

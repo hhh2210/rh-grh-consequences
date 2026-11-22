@@ -1,6 +1,6 @@
 # Consequences of RH and a small-character-witness bound
 
-This Lean project proves two reductions for the [target statements of Qui Vincit and Fable](https://github.com/vincitamore/riemann-lean-account/blob/1c01f271f523dc7d47aca7455fa41d60bdc3849b/lean/Targets.lean), and proves the von Koch prime-counting error bound assuming Mathlib's `RiemannHypothesis`. The target definitions are byte-identical to that revision. All theorems below are in `CarryForward.Targets`.
+This Lean project proves two reductions for the [target statements of Qui Vincit and Fable](https://github.com/vincitamore/riemann-lean-account/blob/1c01f271f523dc7d47aca7455fa41d60bdc3849b/lean/Targets.lean), and proves von Koch’s prime-counting error bound and Cramér’s short-interval prime theorem assuming Mathlib's `RiemannHypothesis`. The target definitions are byte-identical to that revision. All theorems below are in `CarryForward.Targets`.
 
 | Lean theorem | Result |
 | --- | --- |
@@ -9,6 +9,7 @@ This Lean project proves two reductions for the [target statements of Qui Vincit
 | [`psi_bound_of_riemannHypothesis`](PsiFromRH.lean) | RH implies the required ψ bound for all real $x\ge2$. |
 | [`primeCountingError_of_riemannHypothesis`](PsiFromRH.lean) | RH implies the stated prime-counting error bound. |
 | [`weightedZeroCounting_unitWindow_le`](PsiZeroCountingWindow.lean) | Under RH, $N(T+1)-N(T)\le(512/41)\log(T+4)$ for $T\ge8$. Here $N$ counts nontrivial zeros of both signs up to absolute imaginary part $T$, with analytic multiplicity. The file also proves the $O(\log T)$ statement. |
+| [`primeInShortInterval_of_riemannHypothesis`](Cramer.lean) | Under RH, every sufficiently large real $x$ has a prime in $(x,x+C\sqrt{x}\log x]$ for some constant $C$. |
 
 ## Proofs
 
