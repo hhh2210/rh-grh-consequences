@@ -19,7 +19,24 @@ run_cmd do
     `CarryForward.Targets.psi_bound_of_riemannHypothesis,
     `CarryForward.Targets.primeCountingError_of_riemannHypothesis,
     `CarryForward.Targets.norm_adjacent_cpow_averages_sub_le,
-    `CarryForward.Targets.primeInShortInterval_of_riemannHypothesis]
+    `CarryForward.Targets.primeInShortInterval_of_riemannHypothesis,
+    `CarryForward.Targets.miller_iff_of_character_witness,
+    `CarryForward.Targets.dirichletLZerosOnLine_iff_primitive,
+    `CarryForward.Targets.LFunction_ne_zero_right_of_half,
+    `CarryForward.Targets.characterPerron_eq_sum,
+    `CarryForward.Targets.norm_character_logDeriv_two_le,
+    `CarryForward.Targets.psi1_lower_of_sixteen_le,
+    `CarryForward.Targets.ankenyBound_of_primitivePerronBound,
+    `CarryForward.Targets.miller_of_ankenyBound,
+    `CarryForward.Targets.mem_characterZeros,
+    `CarryForward.Targets.exists_character_contour_height,
+    `CarryForward.Targets.tendsto_truncated_characterPerron,
+    `CarryForward.Targets.character_rectangle_eq_sum_residues,
+    `CarryForward.Targets.characterPerron_truncated_eq,
+    `CarryForward.Targets.norm_character_residue_sum_le,
+    `CarryForward.Targets.primitivePerronBound_of_contourBounds,
+    `CarryForward.Targets.ankenyBound_of_dirichletGRH_of_contourBounds,
+    `CarryForward.Targets.miller_of_dirichletGRH_of_contourBounds]
   let allowed := #[`propext, `Classical.choice, `Quot.sound]
   let env ← getEnv
   for name in expected do

@@ -17,6 +17,39 @@ private theorem character_of_proper_subgroup {n : ℕ} [NeZero n]
   exact ⟨x.val, fun h => hx (Subtype.ext h),
     MulChar.mem_subgroupOrderIsoSubgroupMulChar_iff.mp x.property⟩
 
+/-- If all bases up to a cutoff pass, a character witness below the same cutoff
+rules out the proper subgroup containing all strong liars. -/
+theorem miller_iff_of_character_witness {n : ℕ} (hn : 2 < n) (B : ℝ)
+    (witness : ∀ [NeZero n] (χ : DirichletCharacter ℂ n), χ ≠ 1 →
+      ∃ a : ℕ, 0 < a ∧ (a : ℝ) ≤ B ∧ χ (a : ZMod n) ≠ 1)
+    (unit_of_pass : ∀ {a : ℕ}, IsStrongProbablePrime n a → IsUnit (a : ZMod n))
+    (groups : ¬n.Prime → ∃ H : Subgroup (ZMod n)ˣ, H ≠ ⊤ ∧ ∀ (a : ℕ) (u : (ZMod n)ˣ),
+      (u : ZMod n) = (a : ZMod n) → IsStrongProbablePrime n a → u ∈ H) :
+    n.Prime ↔ ∀ a : ℕ, 2 ≤ a → a < n → (a : ℝ) ≤ B → IsStrongProbablePrime n a := by
+  constructor
+  · intro hp a ha han _
+    exact isStrongProbablePrime_of_prime hp (by omega) han
+  intro tests
+  by_contra hc
+  let : NeZero n := ⟨by omega⟩
+  obtain ⟨H, hH, hstrong⟩ := groups hc
+  obtain ⟨χ, hχ, trivialOn⟩ := character_of_proper_subgroup H hH
+  obtain ⟨a, ha, hbound, hvalue⟩ := witness χ hχ
+  by_cases han : a < n
+  · have ha1 : a ≠ 1 := by
+      intro heq
+      simp [heq] at hvalue
+    have pass := tests a (by omega) han hbound
+    obtain ⟨u, hu⟩ := unit_of_pass pass
+    exact hvalue (hu ▸ trivialOn u (hstrong a u hu pass))
+  · let p := n.minFac
+    have hp : p.Prime := Nat.minFac_prime (by omega)
+    have hpn : p < n := (Nat.not_prime_iff_minFac_lt (by omega)).mp hc
+    have hpa : (p : ℝ) ≤ (a : ℝ) := by exact_mod_cast (show p ≤ a by omega)
+    have pass := tests p hp.two_le hpn (hpa.trans hbound)
+    have cop := (ZMod.isUnit_iff_coprime p n).mp (unit_of_pass pass)
+    exact (Nat.not_coprime_of_dvd_of_dvd hp.one_lt (dvd_refl p) (Nat.minFac_dvd n)) cop
+
 /-- Transfer a small character witness to the interval of bases used by Miller.
 If the bound already reaches n, the least prime divisor itself is an admissible
 nonunit witness. This avoids a numerical cutoff and any finite enumeration. -/
@@ -27,29 +60,10 @@ theorem miller_of_liar_subgroups (h : SmallNonresidue)
         (u : ZMod n) = (a : ZMod n) → IsStrongProbablePrime n a → u ∈ H) :
     MillerTestIsCorrect := by
   intro n hn ho
-  constructor
-  · intro hp a ha han _
-    exact isStrongProbablePrime_of_prime hp (by omega) han
-  intro tests
-  by_contra hc
-  let : NeZero n := ⟨by omega⟩
-  obtain ⟨H, hH, hstrong⟩ := groups hn ho hc
-  obtain ⟨χ, hχ, trivialOn⟩ := character_of_proper_subgroup H hH
-  obtain ⟨a, ha, hbound, hvalue⟩ := h n χ hχ
-  by_cases han : a < n
-  · have ha1 : a ≠ 1 := by
-      intro heq
-      simp [heq] at hvalue
-    have pass := tests a (by omega) han hbound.le
-    obtain ⟨u, hu⟩ := unit_of_pass hn pass
-    exact hvalue (hu ▸ trivialOn u (hstrong a u hu pass))
-  · let p := n.minFac
-    have hp : p.Prime := Nat.minFac_prime (by omega)
-    have hpn : p < n := (Nat.not_prime_iff_minFac_lt (by omega)).mp hc
-    have hpa : (p : ℝ) ≤ (a : ℝ) := by exact_mod_cast (show p ≤ a by omega)
-    have pass := tests p hp.two_le hpn (hpa.trans hbound.le)
-    have cop := (ZMod.isUnit_iff_coprime p n).mp (unit_of_pass hn pass)
-    exact (Nat.not_coprime_of_dvd_of_dvd hp.one_lt (dvd_refl p) (Nat.minFac_dvd n)) cop
+  apply miller_iff_of_character_witness hn _ _ (unit_of_pass hn) (groups hn ho)
+  intro _ χ hχ
+  obtain ⟨a, ha, hb, hχa⟩ := h n χ hχ
+  exact ⟨a, ha, hb.le, hχa⟩
 
 #print axioms miller_of_liar_subgroups
 

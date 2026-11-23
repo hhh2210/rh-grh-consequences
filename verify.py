@@ -20,7 +20,7 @@ UPSTREAM_MODULES = tuple("Cryptids.Semantics.Riemann." + part for part in (
     "HorizontalBounds", "WeightedStieltjes"))
 MODULES = ("Targets", "MillerPrime", "MillerSubgroup", "MillerCharacter",
            "MillerFromSmallNonresidue", "PrimeCountingFromPsi", "PsiCompact", *UPSTREAM_MODULES,
-           "PsiFromRH", "PsiZeroCountingWindow", "Cramer", "RHConsequences", "Audit")
+           "PsiFromRH", "PsiZeroCountingWindow", "Cramer", "Ankeny", "DirichletZeroSum", "RHConsequences", "Audit")
 
 
 def checked(args, cwd, env):
@@ -66,6 +66,7 @@ def main():
     parser.add_argument("--prepared-mathlib", type=Path, help="reuse a built checkout at the exact pin")
     parser.add_argument("--receipt", type=Path, help="write the full verification transcript")
     parser.add_argument("--prepare-sources", action="store_true", help="materialize the Cryptids modules for Lake and exit")
+    parser.add_argument("--lake-build", action="store_true", help="also build the default Lake target")
     args = parser.parse_args()
     env = {**os.environ, "LEAN_NUM_THREADS": "1"}
     generated = prepare_cryptids(env)
@@ -92,6 +93,9 @@ def main():
             sys.exit(f"Dependency revision mismatch: {pkg['name']}")
         search_path.append(package / ".lake/build/lib/lean")
     receipt = [version, f"Mathlib {MATHLIB}", f"Cryptids {CRYPTIDS}"]
+    if args.lake_build:
+        log = checked(["lake", "build"], ROOT, env)
+        receipt.extend(["lake build", log.rstrip(), "exit 0"])
     with tempfile.TemporaryDirectory() as tmp:
         env["LEAN_PATH"] = os.pathsep.join([tmp, *map(str, search_path)])
         for name in MODULES:
@@ -107,14 +111,14 @@ def main():
                 sys.exit(f"Unexpected proof placeholder or axiom in {relative}")
             obj = (Path(tmp) / relative).with_suffix(".olean")
             obj.parent.mkdir(parents=True, exist_ok=True)
-            log = checked(["lean", "--root=.", "-o", str(obj), str(relative)], srcroot, env)
+            log = checked(["lean", "-j1", "--root=.", "-o", str(obj), str(relative)], srcroot, env)
             if "sorryAx" in log or "declaration uses 'sorry'" in log:
                 sys.exit(f"Unproved declaration in {name}")
             replay = checked(["leanchecker", "-v", name], ROOT, env)
             if f"replaying {name}" not in replay.splitlines():
                 sys.exit(f"No named kernel replay for {name}")
             receipt.extend([f"\n{relative.as_posix()} sha256={digest}", log.rstrip(),
-                            f"lean --root=. -o <clean-build>/{relative.with_suffix('.olean').as_posix()} {relative.as_posix()} -> exit 0",
+                            f"lean -j1 --root=. -o <clean-build>/{relative.with_suffix('.olean').as_posix()} {relative.as_posix()} -> exit 0",
                             f"leanchecker -v {name}", replay.rstrip(), "exit 0"])
             print(f"Verified {name}", flush=True)
     if args.receipt:

@@ -1,45 +1,155 @@
-Lean (version 4.36.0, x86_64-w64-windows-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)
+Lean (version 4.36.0, arm64-apple-darwin24.6.0, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)
 Mathlib fc4f59e577feb1a4956671bc04ac18aaaf8cd842
 Cryptids 3647718b5df22e1a61462dec0376bd204526285a
+lake build
+⚠ [18250/18290] Replayed Targets
+warning: Targets.lean: imports `Mathlib` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18251/18290] Ran Targets:irArts
+warning: Targets.lean: imports `Mathlib` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+ℹ [18252/18290] Replayed MillerPrime
+info: MillerPrime.lean:40:0: 'CarryForward.Targets.isStrongProbablePrime_of_prime' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [18254/18290] Replayed MillerSubgroup
+info: MillerSubgroup.lean:150:0: 'CarryForward.Targets.exists_proper_subgroup_of_composite' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [18256/18290] Replayed MillerCharacter
+info: MillerCharacter.lean:68:0: 'CarryForward.Targets.miller_of_liar_subgroups' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [18258/18290] Replayed MillerFromSmallNonresidue
+info: MillerFromSmallNonresidue.lean:11:0: 'CarryForward.Targets.millerTestIsCorrect_of_smallNonresidue' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [18260/18290] Replayed PrimeCountingFromPsi
+info: PrimeCountingFromPsi.lean:132:0: 'CarryForward.Targets.primeCountingError_of_psi_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [18262/18290] Replayed PsiCompact
+warning: PsiCompact.lean: imports `Mathlib.NumberTheory.Chebyshev` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PsiCompact.lean: imports `Mathlib.Analysis.Complex.ExponentialBounds` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PsiCompact.lean: imports `Mathlib.Tactic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+info: PsiCompact.lean:48:0: 'CarryForward.Targets.psi_error_on_interval' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PsiCompact.lean:49:0: 'CarryForward.Targets.psi_bound_of_large_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [18263/18290] Ran PsiCompact:irArts
+warning: PsiCompact.lean: imports `Mathlib.NumberTheory.Chebyshev` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PsiCompact.lean: imports `Mathlib.Analysis.Complex.ExponentialBounds` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PsiCompact.lean: imports `Mathlib.Tactic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+ℹ [18276/18290] Replayed PsiFromRH
+info: PsiFromRH.lean:56:0: 'CarryForward.Targets.abs_psi_sub_self_le_seven_eighths_of_five_thousand_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: PsiFromRH.lean:57:0: 'CarryForward.Targets.psi_bound_of_riemannHypothesis' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PsiFromRH.lean:58:0: 'CarryForward.Targets.primeCountingError_of_riemannHypothesis' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [18278/18290] Replayed PsiZeroCountingWindow
+info: PsiZeroCountingWindow.lean:74:0: 'RiemannSchmidt.one_sub_riemannZeta₀_eq_of_re_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PsiZeroCountingWindow.lean:75:0: 'RiemannSchmidt.analyticOrderAt_riemannZeta_ne_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PsiZeroCountingWindow.lean:76:0: 'ConjectureMachines.Semantics.Riemann.VonMangoldtCount.sum_analyticOrderNatAt_fourWindow_le_of_riemannHypothesis' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: PsiZeroCountingWindow.lean:77:0: 'ConjectureMachines.Semantics.Riemann.VonMangoldtCount.weightedZeroCountingFunction_le_sixteen_fifths' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: PsiZeroCountingWindow.lean:78:0: 'CarryForward.Targets.weightedZeroCounting_unitWindow_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: PsiZeroCountingWindow.lean:79:0: 'CarryForward.Targets.weightedZeroCounting_unitWindow_isBigO' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [18280/18290] Replayed Cramer
+info: Cramer.lean:293:0: 'CarryForward.Targets.primeInShortInterval_of_riemannHypothesis' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+✔ [18284/18290] Built DirichletZeroSum (37s)
+✔ [18286/18290] Built RHConsequences (3.3s)
+ℹ [18288/18290] Built Audit (5.1s)
+info: Audit.lean:5:0: CarryForward.Targets.isStrongProbablePrime_of_prime: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:5:0: CarryForward.Targets.fermat_of_isStrongProbablePrime: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:5:0: CarryForward.Targets.isUnit_of_isStrongProbablePrime: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:5:0: CarryForward.Targets.exists_proper_subgroup_of_composite: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:5:0: CarryForward.Targets.miller_of_liar_subgroups: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:5:0: CarryForward.Targets.millerTestIsCorrect_of_smallNonresidue: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:5:0: CarryForward.Targets.primeCountingError_of_psi_bound: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:5:0: CarryForward.Targets.psi_error_on_interval: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:5:0: CarryForward.Targets.psi_bound_of_large_bound: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:5:0: CarryForward.Targets.weightedZeroCounting_unitWindow_le: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:5:0: CarryForward.Targets.weightedZeroCounting_unitWindow_isBigO: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:5:0: CarryForward.Targets.abs_psi_sub_self_le_seven_eighths_of_five_thousand_le: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:5:0: CarryForward.Targets.psi_bound_of_riemannHypothesis: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:5:0: CarryForward.Targets.primeCountingError_of_riemannHypothesis: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:5:0: CarryForward.Targets.norm_adjacent_cpow_averages_sub_le: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:5:0: CarryForward.Targets.primeInShortInterval_of_riemannHypothesis: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:5:0: CarryForward.Targets.miller_iff_of_character_witness: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:5:0: CarryForward.Targets.dirichletLZerosOnLine_iff_primitive: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:5:0: CarryForward.Targets.LFunction_ne_zero_right_of_half: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:5:0: CarryForward.Targets.characterPerron_eq_sum: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:5:0: CarryForward.Targets.norm_character_logDeriv_two_le: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:5:0: CarryForward.Targets.psi1_lower_of_sixteen_le: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:5:0: CarryForward.Targets.ankenyBound_of_primitivePerronBound: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:5:0: CarryForward.Targets.miller_of_ankenyBound: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:5:0: CarryForward.Targets.mem_characterZeros: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:5:0: CarryForward.Targets.exists_character_contour_height: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:5:0: CarryForward.Targets.tendsto_truncated_characterPerron: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:5:0: CarryForward.Targets.character_rectangle_eq_sum_residues: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:5:0: CarryForward.Targets.characterPerron_truncated_eq: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:5:0: CarryForward.Targets.norm_character_residue_sum_le: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:5:0: CarryForward.Targets.primitivePerronBound_of_contourBounds: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:5:0: CarryForward.Targets.ankenyBound_of_dirichletGRH_of_contourBounds: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:5:0: CarryForward.Targets.miller_of_dirichletGRH_of_contourBounds: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:50:0: 'CarryForward.Targets.isStrongProbablePrime_of_prime' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:51:0: 'CarryForward.Targets.fermat_of_isStrongProbablePrime' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:52:0: 'CarryForward.Targets.isUnit_of_isStrongProbablePrime' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:53:0: 'CarryForward.Targets.exists_proper_subgroup_of_composite' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:54:0: 'CarryForward.Targets.miller_of_liar_subgroups' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:55:0: 'CarryForward.Targets.millerTestIsCorrect_of_smallNonresidue' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:56:0: 'CarryForward.Targets.primeCountingError_of_psi_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:60:0: Cryptids.Semantics.Riemann.Schmidt: checked 60 exported theorem declarations
+info: Audit.lean:60:0: Cryptids.Semantics.Riemann.DigammaBinet: checked 89 exported theorem declarations
+info: Audit.lean:60:0: Cryptids.Semantics.Riemann.ExplicitLarge: checked 10 exported theorem declarations
+info: Audit.lean:60:0: Cryptids.Semantics.Riemann.VonMangoldtCount: checked 111 exported theorem declarations
+info: Audit.lean:60:0: Cryptids.Semantics.Riemann.HorizontalBounds: checked 90 exported theorem declarations
+info: Audit.lean:60:0: Cryptids.Semantics.Riemann.WeightedStieltjes: checked 269 exported theorem declarations
+info: Audit.lean:78:0: 'CarryForward.Targets.psi_error_on_interval' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:79:0: 'CarryForward.Targets.psi_bound_of_large_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:80:0: 'CarryForward.Targets.weightedZeroCounting_unitWindow_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:81:0: 'CarryForward.Targets.weightedZeroCounting_unitWindow_isBigO' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:82:0: 'CarryForward.Targets.abs_psi_sub_self_le_seven_eighths_of_five_thousand_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Audit.lean:83:0: 'CarryForward.Targets.psi_bound_of_riemannHypothesis' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:84:0: 'CarryForward.Targets.primeCountingError_of_riemannHypothesis' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Build completed successfully (18290 jobs).
+exit 0
 
 Targets.lean sha256=7a4dc8b3cc972268845ccb2bd23e9c6c1435fbfb103ece80184a47cdc8b06f45
 
-lean --root=. -o <clean-build>/Targets.olean Targets.lean -> exit 0
+lean -j1 --root=. -o <clean-build>/Targets.olean Targets.lean -> exit 0
 leanchecker -v Targets
 replaying Targets
 exit 0
 
 MillerPrime.lean sha256=0d00e1058eb509f4e1cf1606215c5cb9fcc78ff8641673ee41e3d4d9a25f49c3
 'CarryForward.Targets.isStrongProbablePrime_of_prime' depends on axioms: [propext, Classical.choice, Quot.sound]
-lean --root=. -o <clean-build>/MillerPrime.olean MillerPrime.lean -> exit 0
+lean -j1 --root=. -o <clean-build>/MillerPrime.olean MillerPrime.lean -> exit 0
 leanchecker -v MillerPrime
 replaying MillerPrime
 exit 0
 
 MillerSubgroup.lean sha256=605390e0b2cc02511868dcc5aa35e6ddb1ad1271cdda9b809d6a7aa54f0b8d07
 'CarryForward.Targets.exists_proper_subgroup_of_composite' depends on axioms: [propext, Classical.choice, Quot.sound]
-lean --root=. -o <clean-build>/MillerSubgroup.olean MillerSubgroup.lean -> exit 0
+lean -j1 --root=. -o <clean-build>/MillerSubgroup.olean MillerSubgroup.lean -> exit 0
 leanchecker -v MillerSubgroup
 replaying MillerSubgroup
 exit 0
 
-MillerCharacter.lean sha256=9a86b6044f9d6b95bd8460bab482561aef20b71ed5c3e16e1d57f3a392b878a2
+MillerCharacter.lean sha256=c444bd76a2c1334d570add3ebc75cd02021f369606828ba169ac8adec87b40f4
 'CarryForward.Targets.miller_of_liar_subgroups' depends on axioms: [propext, Classical.choice, Quot.sound]
-lean --root=. -o <clean-build>/MillerCharacter.olean MillerCharacter.lean -> exit 0
+lean -j1 --root=. -o <clean-build>/MillerCharacter.olean MillerCharacter.lean -> exit 0
 leanchecker -v MillerCharacter
 replaying MillerCharacter
 exit 0
 
 MillerFromSmallNonresidue.lean sha256=763f2737321f350b06803537701e341e49fbd2dafdc997f83421941bd6fa1205
 'CarryForward.Targets.millerTestIsCorrect_of_smallNonresidue' depends on axioms: [propext, Classical.choice, Quot.sound]
-lean --root=. -o <clean-build>/MillerFromSmallNonresidue.olean MillerFromSmallNonresidue.lean -> exit 0
+lean -j1 --root=. -o <clean-build>/MillerFromSmallNonresidue.olean MillerFromSmallNonresidue.lean -> exit 0
 leanchecker -v MillerFromSmallNonresidue
 replaying MillerFromSmallNonresidue
 exit 0
 
 PrimeCountingFromPsi.lean sha256=eaec769ae9bf8224f28367fef04d03eb01a24e5c315ea69c40fb6acaca572c1d
 'CarryForward.Targets.primeCountingError_of_psi_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
-lean --root=. -o <clean-build>/PrimeCountingFromPsi.olean PrimeCountingFromPsi.lean -> exit 0
+lean -j1 --root=. -o <clean-build>/PrimeCountingFromPsi.olean PrimeCountingFromPsi.lean -> exit 0
 leanchecker -v PrimeCountingFromPsi
 replaying PrimeCountingFromPsi
 exit 0
@@ -47,49 +157,49 @@ exit 0
 PsiCompact.lean sha256=2321216f20dd387bff80768e4d56c3f8d4307e01c4abdda648ac18277a0b4549
 'CarryForward.Targets.psi_error_on_interval' depends on axioms: [propext, Classical.choice, Quot.sound]
 'CarryForward.Targets.psi_bound_of_large_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
-lean --root=. -o <clean-build>/PsiCompact.olean PsiCompact.lean -> exit 0
+lean -j1 --root=. -o <clean-build>/PsiCompact.olean PsiCompact.lean -> exit 0
 leanchecker -v PsiCompact
 replaying PsiCompact
 exit 0
 
 Cryptids/Semantics/Riemann/Schmidt.lean sha256=fcd500ce61e2575d133d42a44b2131271e374803b55cd95a86f204a500bc0cd9
 
-lean --root=. -o <clean-build>/Cryptids/Semantics/Riemann/Schmidt.olean Cryptids/Semantics/Riemann/Schmidt.lean -> exit 0
+lean -j1 --root=. -o <clean-build>/Cryptids/Semantics/Riemann/Schmidt.olean Cryptids/Semantics/Riemann/Schmidt.lean -> exit 0
 leanchecker -v Cryptids.Semantics.Riemann.Schmidt
 replaying Cryptids.Semantics.Riemann.Schmidt
 exit 0
 
 Cryptids/Semantics/Riemann/DigammaBinet.lean sha256=454515163c002142b14cd89a6ed6f4c2ad29e49bd3d7fcdd444dacd91c337c6e
 
-lean --root=. -o <clean-build>/Cryptids/Semantics/Riemann/DigammaBinet.olean Cryptids/Semantics/Riemann/DigammaBinet.lean -> exit 0
+lean -j1 --root=. -o <clean-build>/Cryptids/Semantics/Riemann/DigammaBinet.olean Cryptids/Semantics/Riemann/DigammaBinet.lean -> exit 0
 leanchecker -v Cryptids.Semantics.Riemann.DigammaBinet
 replaying Cryptids.Semantics.Riemann.DigammaBinet
 exit 0
 
 Cryptids/Semantics/Riemann/ExplicitLarge.lean sha256=82d3afb184d7348969f1173b2a2b2d20472072414b2ae5f8588d211658ebe38a
 
-lean --root=. -o <clean-build>/Cryptids/Semantics/Riemann/ExplicitLarge.olean Cryptids/Semantics/Riemann/ExplicitLarge.lean -> exit 0
+lean -j1 --root=. -o <clean-build>/Cryptids/Semantics/Riemann/ExplicitLarge.olean Cryptids/Semantics/Riemann/ExplicitLarge.lean -> exit 0
 leanchecker -v Cryptids.Semantics.Riemann.ExplicitLarge
 replaying Cryptids.Semantics.Riemann.ExplicitLarge
 exit 0
 
 Cryptids/Semantics/Riemann/VonMangoldtCount.lean sha256=fdba61a3d9ec45f48a83420d567091fc439c32b5b44f3ec74386f33d3af42469
 
-lean --root=. -o <clean-build>/Cryptids/Semantics/Riemann/VonMangoldtCount.olean Cryptids/Semantics/Riemann/VonMangoldtCount.lean -> exit 0
+lean -j1 --root=. -o <clean-build>/Cryptids/Semantics/Riemann/VonMangoldtCount.olean Cryptids/Semantics/Riemann/VonMangoldtCount.lean -> exit 0
 leanchecker -v Cryptids.Semantics.Riemann.VonMangoldtCount
 replaying Cryptids.Semantics.Riemann.VonMangoldtCount
 exit 0
 
 Cryptids/Semantics/Riemann/HorizontalBounds.lean sha256=f0ee578eb651581f0c361197f61b3b69554213ea25eec73dcb0cb6e1a043206c
 
-lean --root=. -o <clean-build>/Cryptids/Semantics/Riemann/HorizontalBounds.olean Cryptids/Semantics/Riemann/HorizontalBounds.lean -> exit 0
+lean -j1 --root=. -o <clean-build>/Cryptids/Semantics/Riemann/HorizontalBounds.olean Cryptids/Semantics/Riemann/HorizontalBounds.lean -> exit 0
 leanchecker -v Cryptids.Semantics.Riemann.HorizontalBounds
 replaying Cryptids.Semantics.Riemann.HorizontalBounds
 exit 0
 
 Cryptids/Semantics/Riemann/WeightedStieltjes.lean sha256=027dd37d790c587e15a3a7effb01ddec663e0dda75056c3b2ace70f3a7e3b8d3
 
-lean --root=. -o <clean-build>/Cryptids/Semantics/Riemann/WeightedStieltjes.olean Cryptids/Semantics/Riemann/WeightedStieltjes.lean -> exit 0
+lean -j1 --root=. -o <clean-build>/Cryptids/Semantics/Riemann/WeightedStieltjes.olean Cryptids/Semantics/Riemann/WeightedStieltjes.lean -> exit 0
 leanchecker -v Cryptids.Semantics.Riemann.WeightedStieltjes
 replaying Cryptids.Semantics.Riemann.WeightedStieltjes
 exit 0
@@ -102,7 +212,7 @@ PsiFromRH.lean sha256=0e7f02c124e0eeeb326e2bca0aaebbf141658117e67d86e6c445eeac9f
 'CarryForward.Targets.primeCountingError_of_riemannHypothesis' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-lean --root=. -o <clean-build>/PsiFromRH.olean PsiFromRH.lean -> exit 0
+lean -j1 --root=. -o <clean-build>/PsiFromRH.olean PsiFromRH.lean -> exit 0
 leanchecker -v PsiFromRH
 replaying PsiFromRH
 exit 0
@@ -118,7 +228,7 @@ PsiZeroCountingWindow.lean sha256=a5de9e918b7f46dd7060b19d392181e47f66b62121043e
  Quot.sound]
 'CarryForward.Targets.weightedZeroCounting_unitWindow_le' depends on axioms: [propext, Classical.choice, Quot.sound]
 'CarryForward.Targets.weightedZeroCounting_unitWindow_isBigO' depends on axioms: [propext, Classical.choice, Quot.sound]
-lean --root=. -o <clean-build>/PsiZeroCountingWindow.olean PsiZeroCountingWindow.lean -> exit 0
+lean -j1 --root=. -o <clean-build>/PsiZeroCountingWindow.olean PsiZeroCountingWindow.lean -> exit 0
 leanchecker -v PsiZeroCountingWindow
 replaying PsiZeroCountingWindow
 exit 0
@@ -127,19 +237,33 @@ Cramer.lean sha256=a43031c119b265181ba3a11e734a050edcd87809433e15a26e416654b3aac
 'CarryForward.Targets.primeInShortInterval_of_riemannHypothesis' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-lean --root=. -o <clean-build>/Cramer.olean Cramer.lean -> exit 0
+lean -j1 --root=. -o <clean-build>/Cramer.olean Cramer.lean -> exit 0
 leanchecker -v Cramer
 replaying Cramer
 exit 0
 
-RHConsequences.lean sha256=d15dbc30ebddd488ef8661dd83f089bef1c94061e5af606d7d1ec0ca860113ea
+Ankeny.lean sha256=a1ceb72680c121f393832ac5e183a46499e16a3d0eed21ff379d2d6cb48648f6
 
-lean --root=. -o <clean-build>/RHConsequences.olean RHConsequences.lean -> exit 0
+lean -j1 --root=. -o <clean-build>/Ankeny.olean Ankeny.lean -> exit 0
+leanchecker -v Ankeny
+replaying Ankeny
+exit 0
+
+DirichletZeroSum.lean sha256=7cb120549f9a2817377e7716353a6d6be292c676aff6d32cc94fe67baf196990
+
+lean -j1 --root=. -o <clean-build>/DirichletZeroSum.olean DirichletZeroSum.lean -> exit 0
+leanchecker -v DirichletZeroSum
+replaying DirichletZeroSum
+exit 0
+
+RHConsequences.lean sha256=2577d4639a29651a1fb6677e5e95a2f80df6baccdab0bfb4ebfbf3d9425dc741
+
+lean -j1 --root=. -o <clean-build>/RHConsequences.olean RHConsequences.lean -> exit 0
 leanchecker -v RHConsequences
 replaying RHConsequences
 exit 0
 
-Audit.lean sha256=39e8de512d759b6ec1ce3d1b7e0df8d94d45fe452cf3db0b5cb66b202324850f
+Audit.lean sha256=980a7bb49764434ea980265b308f5291245d7b4129f93b777b02e3fe4417f12b
 CarryForward.Targets.isStrongProbablePrime_of_prime: [propext, Classical.choice, Quot.sound]
 CarryForward.Targets.fermat_of_isStrongProbablePrime: [propext, Classical.choice, Quot.sound]
 CarryForward.Targets.isUnit_of_isStrongProbablePrime: [propext, Classical.choice, Quot.sound]
@@ -156,6 +280,23 @@ CarryForward.Targets.psi_bound_of_riemannHypothesis: [propext, Classical.choice,
 CarryForward.Targets.primeCountingError_of_riemannHypothesis: [propext, Classical.choice, Quot.sound]
 CarryForward.Targets.norm_adjacent_cpow_averages_sub_le: [propext, Classical.choice, Quot.sound]
 CarryForward.Targets.primeInShortInterval_of_riemannHypothesis: [propext, Classical.choice, Quot.sound]
+CarryForward.Targets.miller_iff_of_character_witness: [propext, Classical.choice, Quot.sound]
+CarryForward.Targets.dirichletLZerosOnLine_iff_primitive: [propext, Classical.choice, Quot.sound]
+CarryForward.Targets.LFunction_ne_zero_right_of_half: [propext, Classical.choice, Quot.sound]
+CarryForward.Targets.characterPerron_eq_sum: [propext, Classical.choice, Quot.sound]
+CarryForward.Targets.norm_character_logDeriv_two_le: [propext, Classical.choice, Quot.sound]
+CarryForward.Targets.psi1_lower_of_sixteen_le: [propext, Classical.choice, Quot.sound]
+CarryForward.Targets.ankenyBound_of_primitivePerronBound: [propext, Classical.choice, Quot.sound]
+CarryForward.Targets.miller_of_ankenyBound: [propext, Classical.choice, Quot.sound]
+CarryForward.Targets.mem_characterZeros: [propext, Classical.choice, Quot.sound]
+CarryForward.Targets.exists_character_contour_height: [propext, Classical.choice, Quot.sound]
+CarryForward.Targets.tendsto_truncated_characterPerron: [propext, Classical.choice, Quot.sound]
+CarryForward.Targets.character_rectangle_eq_sum_residues: [propext, Classical.choice, Quot.sound]
+CarryForward.Targets.characterPerron_truncated_eq: [propext, Classical.choice, Quot.sound]
+CarryForward.Targets.norm_character_residue_sum_le: [propext, Classical.choice, Quot.sound]
+CarryForward.Targets.primitivePerronBound_of_contourBounds: [propext, Classical.choice, Quot.sound]
+CarryForward.Targets.ankenyBound_of_dirichletGRH_of_contourBounds: [propext, Classical.choice, Quot.sound]
+CarryForward.Targets.miller_of_dirichletGRH_of_contourBounds: [propext, Classical.choice, Quot.sound]
 'CarryForward.Targets.isStrongProbablePrime_of_prime' depends on axioms: [propext, Classical.choice, Quot.sound]
 'CarryForward.Targets.fermat_of_isStrongProbablePrime' depends on axioms: [propext, Classical.choice, Quot.sound]
 'CarryForward.Targets.isUnit_of_isStrongProbablePrime' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -180,7 +321,7 @@ Cryptids.Semantics.Riemann.WeightedStieltjes: checked 269 exported theorem decla
 'CarryForward.Targets.primeCountingError_of_riemannHypothesis' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-lean --root=. -o <clean-build>/Audit.olean Audit.lean -> exit 0
+lean -j1 --root=. -o <clean-build>/Audit.olean Audit.lean -> exit 0
 leanchecker -v Audit
 replaying Audit
 exit 0
